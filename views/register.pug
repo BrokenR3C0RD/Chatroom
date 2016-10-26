@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		title= "Chat-R Registration"
+		link(rel="stylesheet",href="registration.css")
+	body
+		h1.heading= "Chat-R Registration"
+		
+		unless success
+			h2.errorhead= "Whoops, there was an error signing up!"
+			p.error= reason
+		else
+			h2.successhead= "Registration complete!"
+			p.success= "Welcome to Chat-R, " + username  + "! Have fun on the chatroom!"

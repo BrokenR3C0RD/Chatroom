@@ -1,0 +1,26 @@
+{
+  "name": "chatroom",
+  "version": "10.0.0-dev",
+  "description": "A chatroom programmed in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrokenR3C0RD/Chatroom.git"
+  },
+  "author": "BrokenR3C0RD",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/BrokenR3C0RD/Chatroom/issues"
+  },
+  "homepage": "https://github.com/BrokenR3C0RD/Chatroom#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "js-binary": "^1.1.0",
+    "ws": "^1.1.1"
+  }
+}
