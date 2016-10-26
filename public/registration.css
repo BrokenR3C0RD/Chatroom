@@ -1,0 +1,89 @@
+* {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: black;
+  color: white;
+}
+
+.heading {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: white;
+  background: blue;
+  text-align: center;
+}
+
+.successhead:before {
+  content: "✓ ";
+  color: green;
+  font-size: 1.2em;
+}
+.successhead {
+  margin-top: 1em;
+  border: 2px solid white;
+  text-align: center;
+  width: auto;
+  background: grey;
+}
+
+.success {
+  color: black;
+  background: lime;
+  text-align: center;
+  border: 2px solid green;
+  margin-top: 1em;
+  padding: 3px;
+}
+
+.errorhead:before {
+  content: "x ";
+  color: red;
+  font-size: 1.2em;
+}
+
+.errorhead {
+  margin-top: 1em;
+  border: 2px solid white;
+  text-align: center;
+  width: auto;
+  background: grey;
+}
+
+.error {
+  color: black;
+  background: crimson;
+  text-align: center;
+  border: 2px solid darkred;
+  margin-top: 1em;
+  padding: 3px;
+}
+
+.info:before {
+  content: "i ";
+  color: blue;
+  font-size: 1.2em;
+}
+
+.info {
+  padding: 3px;
+  margin-top: 1em;
+  background: silver;
+  color: black;
+  border: 2px solid blue;
+  text-align: center;
+}
+
+form {
+  margin-top: 1em;
+  background: grey;
+  color: black;
+  padding: 3px;
+  border: 2px solid green;
+  text-align: center;
+}

@@ -45,7 +45,7 @@ var getUserByName = function(username){
 		if(user.username === username)
 			ret = user;
 	});
-	return user;
+	return ret;
 }
 
 var app = express();
@@ -57,29 +57,29 @@ app.use("/", express.static("public"));
 app.post("/register", bodyParser.urlencoded({
 	extended: true
 }), (req, res, next) => {
-	var form = req.form;
+	var form = req.body;
 	
 	if(typeof form.username !== "string" || !re.test(form.username))
-		return res.renderFile("register.pug", {
+		return res.render("register.pug", {
 			success: false,
 			reason: "Whoops, your username is invalid! Usernames can only contain alphanumeric characters, _ and -, and must start with a letter."
 		});
 	
 	if(typeof form.password !== "string" || !hash.test(form.password))
-		return res.renderFile("register.pug", {
+		return res.render("register.pug", {
 			success: false,
 			reason: "The password sent doesn't seem to be a SHA-256 hash."
 		});
 	
 	if(getUserByName(form.username) != null)
-		return res.renderFile("register.pug", {
+		return res.render("register.pug", {
 			success: false,
 			reason: "This user already exists! Please choose a different one."
 		});
 		
 	bcrypt.hash(form.password, 8, (err, hash) => {
 		if(err)
-			return res.renderFile("resgister.pug", {
+			return res.render("resgister.pug", {
 				success: false,
 				reason: "There was an error in the backend!"
 			});
@@ -93,7 +93,7 @@ app.post("/register", bodyParser.urlencoded({
 		});
 		
 		fs.writeFile("users.db", database.encode(db), function(err){
-			res.renderFile("register.pug", {
+			res.render("register.pug", {
 				success: true,
 				username: form.username
 			});
@@ -144,7 +144,7 @@ server.on("connection", socket => {
 						reason: "Invalid password. Please check your client side implementation."
 					}));
 				
-				var tmpUser = db.users[msg.username];
+				var tmpUser = getUserByName(msg.username);
 				if(tmpUser == null)
 					return socket.send(JSON.stringify({
 						type: "response",

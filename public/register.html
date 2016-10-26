@@ -2,10 +2,18 @@
 <html>
 	<head>
 		<title>Chat-R Registration</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.3.2/sha256.min.js"></script>
 		<script src="/register.js"></script>
-		<link rel="stylesheet" href="/register.css" />
+		<link rel="stylesheet" href="/registration.css" />
 	</head>
 	<body>
-	
+		<h1 class="heading">Chat-R Registration</h1>
+		<p class="info">Please fill all fields below, and submit.</p>
+		<form class="registration" action="/register" method="POST" enctype="application/x-www-urlencoded" onsubmit="confirmForm()">
+			<input type="text" name="username" id="username" maxlength="20" placeholder="Username" required /><br/>
+			<input type="password" name="password" id="password" placeholder="Password" required /><br/>
+			<input type="password" id="confirm_password" placeholder="Confirm Password" required /><br/><br/>
+			<input type="submit" value="Register" />
+		</form>
 	</body>
 </html>
